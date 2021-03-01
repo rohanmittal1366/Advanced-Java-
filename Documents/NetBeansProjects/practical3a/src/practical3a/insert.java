@@ -28,6 +28,10 @@ public class insert extends JPanel implements ActionListener {
         setPreferredSize(new Dimension(700, 700));
         setFocusable(true);
 
+        JLabel jl0 = new JLabel("INSERT");
+        jl0.setBounds(550,10,300,90);
+        add(jl0);
+        
         jl1 = new JLabel("Name");
         jl1.setFont(new Font("Tahoma", Font.PLAIN, 17));
         jl1.setBounds(20, 50, 120, 30);
@@ -221,10 +225,14 @@ public class insert extends JPanel implements ActionListener {
                 String str = "insert into student value('" + name + "','" + roll + "','" + email + "','" + gender + "','" + lang + "','" + sem + "','" + user + "','" + pass + "','" + add + "','" + age + "');";
 
                 try {
-                    c.s.executeUpdate(str);
+                   
 
-                    JOptionPane.showConfirmDialog(null, "Please Confirm ", "Confirm", JOptionPane.OK_CANCEL_OPTION);
+                    int x = JOptionPane.showConfirmDialog(null, "Please Confirm ", "Confirm", JOptionPane.OK_CANCEL_OPTION);
 
+                    if(x==0)
+                    {
+                        c.s.executeUpdate(str); 
+                    }
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -241,6 +249,7 @@ public class insert extends JPanel implements ActionListener {
             jtf4.setText("");
             jtf5.setText("");
             jtf6.setText("");
+            
         }
     }
 

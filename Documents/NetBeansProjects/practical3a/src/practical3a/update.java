@@ -47,9 +47,14 @@ public class update extends JPanel implements ActionListener {
 
     update() {
 
+        
         setPreferredSize(new Dimension(700, 700));
         setFocusable(true);
 
+        JLabel jl0 = new JLabel("UPDATE");
+        jl0.setBounds(550,10,300,90);
+        add(jl0);
+        
         jl1 = new JLabel("Username");
         jl1.setFont(new Font("Tahoma", Font.PLAIN, 17));
         jl1.setBounds(20, 50, 120, 30);
@@ -328,42 +333,39 @@ public class update extends JPanel implements ActionListener {
             }
 
         } else if (a.getSource() == b3) {
-            
-            int x2 = JOptionPane.showConfirmDialog(null, "Are you sure you want to change the password","Confirm", JOptionPane.YES_NO_OPTION);
-            String str4=null,str3=null,str5=null;
-          if(x2==0)
-          {
-              str4 = JOptionPane.showInputDialog(null, "Enter your password");
-              
-             try {
-            conn c = new conn();
-            String user = (String) cb.getSelectedItem();
-            String str = "select * from student where username='" + user + "'";
-            ResultSet rs = null;
-            PreparedStatement pst = null;
-            pst = (PreparedStatement) c.c.prepareStatement(str);
-            rs = pst.executeQuery(str);
-            while (rs.next()) {
-                 str3 = rs.getString("password");
-            }
-            if(str3.equals(str4))
-            {
-                 str5 = JOptionPane.showInputDialog(null, "Enter your new password");
-                 String str6 = "update student set password ='" + str5 + "' where username ='"+user+"'";
-                 pst.executeUpdate(str6);
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(null,"Password is Incorrect, Try Again", "Message", JOptionPane.WARNING_MESSAGE);
-       
-           }
 
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-          }
-          
-           
+            int x2 = JOptionPane.showConfirmDialog(null, "Are you sure you want to change the password", "Confirm", JOptionPane.YES_NO_OPTION);
+            String str4 = null, str3 = null, str5 = null;
+            if (x2 == 0) {
+                str4 = JOptionPane.showInputDialog(null, "Enter your password");
+
+                try {
+                    conn c = new conn();
+                    String user = (String) cb.getSelectedItem();
+                    String str = "select * from student where username='" + user + "'";
+                    ResultSet rs = null;
+                    PreparedStatement pst = null;
+                    pst = (PreparedStatement) c.c.prepareStatement(str);
+                    rs = pst.executeQuery(str);
+                    while (rs.next()) {
+                        str3 = rs.getString("password");
+                    }
+                    if (str3.equals(str4)) {
+                        str5 = JOptionPane.showInputDialog(null, "Enter your new password");
+                        String str6 = "update student set password ='" + str5 + "' where username ='" + user + "'";
+                        pst.executeUpdate(str6);
+                        JOptionPane.showMessageDialog(null, "Password is changed", "Message", JOptionPane.WARNING_MESSAGE);
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Password is Incorrect, Try Again", "Message", JOptionPane.WARNING_MESSAGE);
+
+                    }
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+            }
+
         }
     }
 }

@@ -2,6 +2,7 @@ package practical3a;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Image;
 import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -48,6 +49,14 @@ public class Practical3a extends JFrame implements ActionListener {
         jmb.add(m1);
         add(jmb);
         setJMenuBar(jmb);
+
+//        ImageIcon i1 = new ImageIcon(getClass().getResource("images.png"));
+//        Image i2 = i1.getImage().getScaledInstance(300, 200, Image.SCALE_DEFAULT);
+//        ImageIcon i3 = new ImageIcon(i2);
+//        JLabel jl10 = new JLabel(i3);
+//        jl10.setBounds(0,0, 300, 200);
+//        add(jl10);
+
         getContentPane().setBackground(Color.pink);
 //        setBounds(300, 100, 700, 700);
         //LayoutManager FlowLayout = new FlowLayout();
@@ -73,6 +82,11 @@ public class Practical3a extends JFrame implements ActionListener {
 
         } else if (e.getSource() == i2) {
 
+            view v = new view();
+            add(v);
+            pack();
+            
+
         } else if (e.getSource() == i3) {
 
             update u = new update();
@@ -80,6 +94,10 @@ public class Practical3a extends JFrame implements ActionListener {
             pack();
         } else if (e.getSource() == i4) {
 
+            delete d = new delete();
+            add(d);
+            pack();
+            
         }
     }
 
