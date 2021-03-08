@@ -1,5 +1,3 @@
-
-
 package practical3a;
 
 import java.awt.Color;
@@ -14,20 +12,19 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import net.proteanit.sql.DbUtils;
 
+public class view extends JPanel implements ActionListener {
 
-public class view extends JPanel implements ActionListener{
-   
     JTable t1;
     JButton b1, b2;
-    view()
-    {
-        
-        setPreferredSize(new Dimension(1000, 600));
+
+    view() {
+
+        setPreferredSize(new Dimension(1000, 800));
         setFocusable(true);
         t1 = new JTable();
         t1.setBounds(0, 40, 1000, 400);
         add(t1);
-        
+
         JLabel jl2 = new JLabel("Name");
         jl2.setBounds(15, 10, 100, 20);
         jl2.setForeground(Color.black);
@@ -69,26 +66,25 @@ public class view extends JPanel implements ActionListener{
         jl9.setForeground(Color.black);
         jl9.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(jl9);
-        
+
         JLabel jl3 = new JLabel("Password");
         jl3.setBounds(715, 10, 100, 20);
         jl3.setForeground(Color.black);
         jl3.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(jl3);
-        
+
         JLabel jl13 = new JLabel("Address");
         jl13.setBounds(820, 10, 100, 20);
         jl13.setForeground(Color.black);
         jl13.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(jl13);
-        
+
         JLabel jl10 = new JLabel("Age");
         jl10.setBounds(920, 10, 70, 20);
         jl10.setForeground(Color.black);
         jl10.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(jl10);
 
-        
         b1 = new JButton("Load Data");
         b1.setBounds(400, 500, 120, 30);
         b1.setBackground(Color.black);
@@ -96,14 +92,11 @@ public class view extends JPanel implements ActionListener{
         b1.addActionListener(this);
         add(b1);
 
-       
         setBackground(Color.white);
         setLayout(null);
         //setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
-        
-        
-        
+
     }
 
     public static void main(String args[]) {
@@ -122,8 +115,8 @@ public class view extends JPanel implements ActionListener{
             } catch (Exception e) {
                 System.out.println(e);
             }
-        
+
         }
     }
-    
+
 }

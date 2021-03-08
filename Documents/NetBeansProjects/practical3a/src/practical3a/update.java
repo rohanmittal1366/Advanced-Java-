@@ -6,7 +6,7 @@
 package practical3a;
 
 import com.mysql.jdbc.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.sql.SQLException;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -47,14 +47,13 @@ public class update extends JPanel implements ActionListener {
 
     update() {
 
-        
-        setPreferredSize(new Dimension(700, 700));
+        setPreferredSize(new Dimension(1000, 800));
         setFocusable(true);
 
         JLabel jl0 = new JLabel("UPDATE");
-        jl0.setBounds(550,10,300,90);
+        jl0.setBounds(550, 10, 300, 90);
         add(jl0);
-        
+
         jl1 = new JLabel("Username");
         jl1.setFont(new Font("Tahoma", Font.PLAIN, 17));
         jl1.setBounds(20, 50, 120, 30);
@@ -262,10 +261,11 @@ public class update extends JPanel implements ActionListener {
                 //System.out.println(sem);
 
 //              String str = "update student set value('" + name + "','" + roll + "','" + email + "','" + gender + "','" + lang + "','" + sem + "','" + user + "','" + pass + "','" + add + "','" + age + "');";
-                String str = "update student set name ='" + name + "',  rollno= '" + roll + "', email= '" + email + "',  gender= '" + gender + "', language= '" + lang + "',sem= '" + sem + "', address= '" + add + "', age= '" + age + "' where username='" + user + "'";
-//                String str = "update student set ";
+//                String str = "update student set name ='" + name + "',  rollno= '" + roll + "', email= '" + email + "',  gender= '" + gender + "', language= '" + lang + "',sem= '" + sem + "', address= '" + add + "', age= '" + age + "' where username='" + user + "'";
+//                PreparedStatement pst = (PreparedStatement) c.c.prepareStatement(str);
+                String str = "{call update(?,?,?,?,?,?,?,?,?)}";
+                CallableStatement pst = c.c.prepareCall(str);
 
-                PreparedStatement pst = (PreparedStatement) c.c.prepareStatement(str);
 //                ResultSet rs1 = null;
 //               
 //              ResultSet rs = null;
@@ -273,19 +273,18 @@ public class update extends JPanel implements ActionListener {
 //              pst = (PreparedStatement) c.c.prepareStatement(str);
 //              rs = pst.executeQuery(str);
 //                rs1 = pst.executeQuery(str);
-
-//                   pst.setString(1, name);
-//                   pst.setString(2,user);
-//                   pst.setString(2,roll);
-//                   pst.setString(3,email);
-//                   pst.setString(4,gender);
-//                   pst.setString(5,lang);
-//                   pst.setString(6,sem);
-//                   pst.setString(7,add);
-//                   pst.setString(8,age);
+                pst.setString(1, name);
+                pst.setString(2, roll);
+                pst.setString(3, email);
+                pst.setString(4, gender);
+                pst.setString(5, lang);
+                pst.setString(6, sem);
+                pst.setString(7, user);
+                pst.setString(8, add);
+                pst.setString(9, age);
 //                   pst.executeQuery(str);
-                pst.executeUpdate();
-                pst.close();
+                pst.execute();
+
             } catch (Exception e) {
                 System.out.println(e);
             }

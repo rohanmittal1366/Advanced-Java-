@@ -1,0 +1,11 @@
+.invisible-at-first {
+	display: none;
+}
+
+body {
+	background-color: #a3a3a3;
+}
+
+.fa-edit {
+	color: #000000;
+}

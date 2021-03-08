@@ -1,6 +1,8 @@
 package practical3a;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Image;
 import java.awt.LayoutManager;
@@ -24,6 +26,7 @@ public class Practical3a extends JFrame implements ActionListener {
     JComboBox jmb1, jmb2;
     JRadioButton jrb1, jrb2;
     JLabel jl1;
+    JPanel jp;
 
     Practical3a() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -56,6 +59,10 @@ public class Practical3a extends JFrame implements ActionListener {
 //        JLabel jl10 = new JLabel(i3);
 //        jl10.setBounds(0,0, 300, 200);
 //        add(jl10);
+        jp = new JPanel();
+        jp.setPreferredSize(new Dimension(1000, 800));
+        jp.setFocusable(true);
+        add(jp);
 
         getContentPane().setBackground(Color.pink);
 //        setBounds(300, 100, 700, 700);
@@ -74,30 +81,32 @@ public class Practical3a extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        insert i = new insert();
+        view v = new view();
+        update u = new update();
+        delete d = new delete();
         if (e.getSource() == i1) {
 
-            insert i = new insert();
-            add(i);
+            jp.removeAll();
+            jp.add(i);
             pack();
 
         } else if (e.getSource() == i2) {
-
-            view v = new view();
-            add(v);
+            jp.removeAll();
+            jp.add(v);
             pack();
-            
 
         } else if (e.getSource() == i3) {
 
-            update u = new update();
-            add(u);
+            jp.removeAll();
+            jp.add(u);
             pack();
         } else if (e.getSource() == i4) {
 
-            delete d = new delete();
-            add(d);
+            jp.removeAll();
+            jp.add(d);
             pack();
-            
+
         }
     }
 

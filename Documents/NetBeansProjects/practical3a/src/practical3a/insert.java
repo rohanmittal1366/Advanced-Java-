@@ -12,8 +12,9 @@ import javax.swing.text.MaskFormatter;
 
 public class insert extends JPanel implements ActionListener {
 
-    JTextField jtf1, jtf2, jtf3, jtf4, jtf5, jtf6;
+    JTextField jtf1, jtf2, jtf3, jtf4, jtf6;
     JLabel jl1, jl2, jl3, jl4, jl5, jl6, jl7, jl8, jl9, jl10;
+    JPasswordField jtf5;
     MaskFormatter mf1;
     JFormattedTextField jft1;
     JRadioButton r1, r2;
@@ -25,13 +26,13 @@ public class insert extends JPanel implements ActionListener {
 
     insert() {
 
-        setPreferredSize(new Dimension(700, 700));
+        setPreferredSize(new Dimension(1000, 800));
         setFocusable(true);
 
         JLabel jl0 = new JLabel("INSERT");
-        jl0.setBounds(550,10,300,90);
+        jl0.setBounds(550, 10, 300, 90);
         add(jl0);
-        
+
         jl1 = new JLabel("Name");
         jl1.setFont(new Font("Tahoma", Font.PLAIN, 17));
         jl1.setBounds(20, 50, 120, 30);
@@ -142,14 +143,14 @@ public class insert extends JPanel implements ActionListener {
         jl9.setBounds(20, 440, 120, 30);
         add(jl9);
 
-        jtf5 = new JTextField();
+        jtf5 = new JPasswordField();
         jtf5.setBounds(180, 440, 150, 20);
         add(jtf5);
 
-        jl9 = new JLabel("Address");
-        jl9.setFont(new Font("Tahoma", Font.PLAIN, 17));
-        jl9.setBounds(20, 490, 120, 35);
-        add(jl9);
+        jl10 = new JLabel("Address");
+        jl10.setFont(new Font("Tahoma", Font.PLAIN, 17));
+        jl10.setBounds(20, 490, 120, 35);
+        add(jl10);
 
         jtf6 = new JTextField();
         jtf6.setBounds(180, 490, 150, 20);
@@ -225,13 +226,11 @@ public class insert extends JPanel implements ActionListener {
                 String str = "insert into student value('" + name + "','" + roll + "','" + email + "','" + gender + "','" + lang + "','" + sem + "','" + user + "','" + pass + "','" + add + "','" + age + "');";
 
                 try {
-                   
 
                     int x = JOptionPane.showConfirmDialog(null, "Please Confirm ", "Confirm", JOptionPane.OK_CANCEL_OPTION);
 
-                    if(x==0)
-                    {
-                        c.s.executeUpdate(str); 
+                    if (x == 0) {
+                        c.s.executeUpdate(str);
                     }
                 } catch (Exception e) {
                     System.out.println(e);
@@ -249,7 +248,7 @@ public class insert extends JPanel implements ActionListener {
             jtf4.setText("");
             jtf5.setText("");
             jtf6.setText("");
-            
+
         }
     }
 

@@ -22,7 +22,7 @@ public class delete extends JPanel implements ActionListener {
     JButton jb1, jb2;
 
     delete() {
-        setPreferredSize(new Dimension(600, 400));
+        setPreferredSize(new Dimension(1000, 800));
         setFocusable(true);
 
         jl1 = new JLabel("Enter the Username to delete : ");
@@ -86,6 +86,7 @@ public class delete extends JPanel implements ActionListener {
 
                 if (x == 0) {
                     pst.executeUpdate(str1);
+                    JOptionPane.showMessageDialog(null, "Deleted Succesfully");
                 }
             } catch (Exception e) {
                 System.out.println(e);
