@@ -222,15 +222,29 @@ public class insert extends JPanel implements ActionListener {
                 String pass = jtf5.getText();
                 String add = jtf6.getText();
                 //System.out.println(sem);
-
-                String str = "insert into student value('" + name + "','" + roll + "','" + email + "','" + gender + "','" + lang + "','" + sem + "','" + user + "','" + pass + "','" + add + "','" + age + "');";
+//                String str = "insert into student (name,roll,email,gender,lang,sem,user,pass,add,age) values(?,?,?,?,?,?,?,?,?,?) ";
+//                String str = "insert into student value('" + name + "','" + roll + "','" + email + "','" + gender + "','" + lang + "','" + sem + "','" + user + "','" + pass + "','" + add + "','" + age + "');";
+                String str = "INSERT INTO `student` (`name`, `rollno`, `email`, `gender`, `language`, `sem`, `username`, `password`, `address`, `age`) VALUES (?,?,?,?,?,?,?,?,?,?)";
+                   PreparedStatement pst = (PreparedStatement) c.c.prepareStatement(str);
 
                 try {
 
                     int x = JOptionPane.showConfirmDialog(null, "Please Confirm ", "Confirm", JOptionPane.OK_CANCEL_OPTION);
 
                     if (x == 0) {
-                        c.s.executeUpdate(str);
+
+                        pst.setString(1, name);
+                        pst.setString(2, roll);
+                        pst.setString(3, email);
+                        pst.setString(4, gender);
+                        pst.setString(5, lang);
+                        pst.setString(6, sem);
+                        pst.setString(7, user);
+                        pst.setString(8, pass);
+                        pst.setString(9, add);
+                        pst.setString(10, age);
+                        
+                        pst.executeUpdate();
                     }
                 } catch (Exception e) {
                     System.out.println(e);
