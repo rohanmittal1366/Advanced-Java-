@@ -36,6 +36,7 @@ public class serv2 implements Servlet {
     @Override
     public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("serv2");
         res.setContentType("text/html");
         String name = req.getParameter("username");
         String pass = req.getParameter("password");
@@ -66,7 +67,7 @@ public class serv2 implements Servlet {
             System.out.println(ok);
 
             RequestDispatcher rd = req.getRequestDispatcher("login.html");
-            out.print("<p style='color:red;'>Registered Successfully</p>");
+            out.print("<p style='color:red;'><h1>Registered Successfully</h1></p>");
             rd.forward(req, res);
         } else {
 

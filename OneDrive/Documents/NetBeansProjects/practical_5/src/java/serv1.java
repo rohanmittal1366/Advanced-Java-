@@ -41,11 +41,12 @@ public class serv1 implements Servlet {
     public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
+        System.out.println("serv1.service()");
         res.setContentType("text/html");
         String name = req.getParameter("username");
         String pass = req.getParameter("password");
         int ok = 0;
-
+        
         System.out.println(name + pass);
         try {
 //            Class.forName("com.mysql.jdbc.Driver");

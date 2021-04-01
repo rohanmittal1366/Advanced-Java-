@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <filter>
+        <filter-name>filter1</filter-name>
+        <filter-class>filter1</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>filter1</filter-name>
+        <url-pattern>/serv1</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>serv1</servlet-name>
         <servlet-class>serv1</servlet-class>
@@ -12,6 +20,14 @@
         <servlet-name>welcome</servlet-name>
         <servlet-class>welcome</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>random</servlet-name>
+        <servlet-class>random</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>random2</servlet-name>
+        <servlet-class>random2</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>serv1</servlet-name>
         <url-pattern>/serv1</url-pattern>
@@ -23,6 +39,14 @@
     <servlet-mapping>
         <servlet-name>welcome</servlet-name>
         <url-pattern>/welcome</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>random</servlet-name>
+        <url-pattern>/random</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>random2</servlet-name>
+        <url-pattern>/random2</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
