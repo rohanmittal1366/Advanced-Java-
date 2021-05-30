@@ -1,6 +1,4 @@
 
-package rdemo_j1;
-
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;

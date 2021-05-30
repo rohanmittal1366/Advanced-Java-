@@ -1,6 +1,4 @@
 
-package rdemo_j1;
-
 import java.util.Enumeration;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;

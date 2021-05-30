@@ -13,14 +13,14 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-         <form action="servlet1" method="POST">
-                <div style="font-size: 34px; color: green; text-align:center"><p>User Login</p> </div>
-                <div class ="log">
-                    <h2>Enter Username : <input type="text" name="username" /></h2>
+        <form action="servlet1" method="POST">
+            <div style="font-size: 34px; color: green; text-align:center"><p>User Login</p> </div>
+            <div class ="log">
+                <h2>Enter Username : <input type="text" name="username" /></h2>
 
-                    <h2>Enter Password : <input type="text" name="password" /></h2> 
-                    <h2><input type ="submit" style="font-size: 20px"></h2>
-                </div>
-            </form>
+                <h2>Enter Password : <input type="text" name="password" /></h2> 
+                <h2><input type ="submit" style="font-size: 20px"></h2>
+            </div>
+        </form>
     </body>
 </html>

@@ -16,7 +16,7 @@ public class conn {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            c = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/student?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true", "root", "");
+            c = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/student", "root", "");
             //Peoples?autoReconnect=true&amp;useSSL=false&amp;allowPublicKeyRetrieval=true
             s = c.createStatement();
 
